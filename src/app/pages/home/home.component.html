@@ -1,0 +1,237 @@
+<!-- HERO: full-viewport dark band; the live sample model is the pitch -->
+<section class="hero iso-grid">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow light">2D plan → 3D isometric model</span>
+      <h1>See your building <span class="accent">before it's built.</span></h1>
+      <p class="lead">We turn floor plans into interactive 3D isometric models that homeowners, builders and their buyers can rotate, open floor by floor and share on any phone.</p>
+      <div class="cta">
+        <a class="btn btn-glow" routerLink="/" fragment="contact">Get a quote <span aria-hidden="true">→</span></a>
+        <a class="btn btn-glass" routerLink="/work/pradeep-residence">Explore a sample house</a>
+      </div>
+      <ul class="proof">
+        <li><b>3–5 days</b>delivery</li>
+        <li><b>Any phone</b>no app needed</li>
+        <li><b>₹2,999</b>per floor, from</li>
+      </ul>
+    </div>
+    <figure class="hero-model">
+      <iframe src="models/pradeep-residence.html?embed" title="Interactive 3D model of Pradeep Residence" loading="lazy"></iframe>
+      <span class="chip c1">G+1 · terrace</span>
+      <span class="chip c2">1,708 sq.ft built-up</span>
+      <figcaption>
+        <span class="live">Live model</span>
+        <span>Pradeep Residence, {{ pradeep.place }} · drag to rotate</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="band">
+  <div class="wrap">
+    <div class="head" appReveal>
+      <div>
+        <span class="eyebrow">Why 3D</span>
+        <h2>From flat lines to a space you can feel.</h2>
+      </div>
+      <p>Most families can't picture a home from a drawing. A model shows real proportions, furniture fit, light and how the floors connect.</p>
+    </div>
+    <div class="ba">
+      <div class="ba-card" appReveal>
+        <span class="tag">Before · 2D plan</span>
+        <svg viewBox="0 0 200 140" class="plan" aria-label="2D floor plan sketch">
+          <rect x="10" y="10" width="180" height="120" fill="none" stroke="currentColor" stroke-width="3"/>
+          <path d="M90 10v60M10 70h120M130 70v60M130 40h60" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M60 70a20 20 0 0 1 20-20" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
+          <text x="30" y="45">Hall</text><text x="140" y="30">Kitchen</text><text x="40" y="105">Parking</text><text x="145" y="105">Bed</text>
+        </svg>
+        <p class="muted">Lines and numbers. Hard to judge room sizes, heights or how spaces flow.</p>
+      </div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="ba-card after" appReveal="150">
+        <span class="tag">After · 3D model</span>
+        <svg viewBox="0 0 200 140" class="iso" aria-label="3D isometric house sketch">
+          <path d="M100 20 170 55v50l-70 35-70-35V55z" fill="var(--tint)" stroke="var(--green)" stroke-width="2"/>
+          <path d="M100 20 170 55 100 90 30 55z" fill="var(--saffron)" opacity=".9"/>
+          <path d="M100 90v50l-70-35V55z" fill="var(--green)" opacity=".9"/>
+          <path d="M100 90v50l70-35V55z" fill="var(--green-deep)" opacity=".9"/>
+          <path d="M60 64v24M135 70v26" stroke="#fff" stroke-width="5"/>
+        </svg>
+        <p class="muted">Rotate, zoom and open each floor. Everyone sees the same house.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="head" appReveal>
+      <div>
+        <span class="eyebrow">How it works</span>
+        <h2>From your plan to a shareable 3D model in four steps.</h2>
+      </div>
+      <a class="btn btn-ghost" routerLink="/" fragment="contact">Start with step one</a>
+    </div>
+    <ol class="steps">
+      @for (s of steps; track s.title; let i = $index) {
+        <li [appReveal]="i * 100">
+          <span class="num">0{{ i + 1 }}</span>
+          <h3>{{ s.title }}</h3>
+          <p class="muted">{{ s.text }}</p>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="band">
+  <div class="wrap">
+    <div class="head" appReveal>
+      <div>
+        <span class="eyebrow">Who it's for</span>
+        <h2>Made for the people who build, buy and approve.</h2>
+      </div>
+    </div>
+    <div class="aud">
+      @for (a of audiences; track a.who; let i = $index) {
+        <article [appReveal]="i * 120">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path [attr.d]="audienceIcons[i]"/></svg>
+          </span>
+          <h3>{{ a.who }}</h3>
+          <p class="aud-lead">{{ a.lead }}</p>
+          <ul>
+            @for (p of a.points; track p) { <li>{{ p }}</li> }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE: dark band, model runs edge to edge on the left -->
+<section id="work" class="showcase iso-grid">
+  <div class="show">
+    <div class="show-media" appReveal>
+      <iframe src="models/pradeep-residence.html?embed" title="Pradeep Residence 3D model" loading="lazy"></iframe>
+    </div>
+    <div class="show-copy" appReveal="150">
+      <span class="eyebrow light">Our work · sample project</span>
+      <h2>{{ pradeep.name }}</h2>
+      <p class="place">{{ pradeep.place }}, Tamil Nadu</p>
+      <p class="desc">We created this model from the owner's three-page floor plan: ground floor, first floor and terrace. Every room is built to the drawing's dimensions, with furniture, finishes, the car parking, compound wall and gate.</p>
+      <dl class="specs">
+        @for (s of pradeep.specs; track s.k) {
+          <div><dt>{{ s.k }}</dt><dd>{{ s.v }}</dd></div>
+        }
+      </dl>
+      <ul class="feat">
+        <li>View each floor separately with cut-away walls</li>
+        <li>Day and evening lighting</li>
+        <li>Room list with areas in sq.ft</li>
+      </ul>
+      <a class="btn btn-glow" routerLink="/work/pradeep-residence">Open full-screen model <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="head center" appReveal>
+      <div>
+        <span class="eyebrow">Pricing</span>
+        <h2>Simple prices, quoted per plan.</h2>
+      </div>
+    </div>
+    <div class="plans">
+      @for (p of plans; track p.name; let i = $index) {
+        <article [class.featured]="p.featured" [appReveal]="i * 120">
+          @if (p.featured) { <span class="pop">Most chosen</span> }
+          <h3>{{ p.name }}</h3>
+          <p class="price">{{ p.price }}<small>{{ p.unit }}</small></p>
+          <ul>
+            @for (it of p.items; track it) { <li>{{ it }}</li> }
+          </ul>
+          <a class="btn" [class.btn-glow]="p.featured" [class.btn-ghost]="!p.featured" routerLink="/" fragment="contact">Request this</a>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="band">
+  <div class="wrap faq-grid">
+    <div class="faq-head" appReveal>
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions people ask before sending a plan.</h2>
+      <p class="muted">Still unsure? Call or WhatsApp us on <b>{{ site.phone }}</b>.</p>
+    </div>
+    <div class="faq" appReveal="120">
+      @for (f of faq; track f.q; let first = $first) {
+        <details [open]="first">
+          <summary>{{ f.q }}</summary>
+          <p class="muted">{{ f.a }}</p>
+        </details>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact iso-grid">
+  <div class="wrap contact-grid">
+    <div appReveal>
+      <span class="eyebrow light">Get a quote</span>
+      <h2>Send us your plan. We'll reply with a price within a day.</h2>
+      <p class="sub">Based in {{ site.city }}. We work with clients across Tamil Nadu and beyond.</p>
+      <dl class="reach">
+        <div><dt>Phone / WhatsApp</dt><dd>{{ site.phone }}</dd></div>
+        <div><dt>Email</dt><dd>{{ site.email }}</dd></div>
+      </dl>
+    </div>
+    @if (!sent()) {
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate appReveal="120">
+        <label for="name">Your name</label>
+        <input id="name" formControlName="name" autocomplete="name">
+        @if (form.controls.name.touched && form.controls.name.invalid) { <small class="err">Please enter your name.</small> }
+
+        <label for="phone">Phone number</label>
+        <input id="phone" formControlName="phone" inputmode="tel" autocomplete="tel" placeholder="86819 62167">
+        @if (form.controls.phone.touched && form.controls.phone.invalid) { <small class="err">Enter a 10-digit phone number.</small> }
+
+        <div class="row">
+          <div>
+            <label for="type">I am a</label>
+            <select id="type" formControlName="type">
+              <option>Homeowner</option><option>Builder</option><option>Architect / Engineer</option>
+            </select>
+          </div>
+          <div>
+            <label for="floors">Building size</label>
+            <select id="floors" formControlName="floors">
+              <option>Ground only</option><option>G+1</option><option>G+2</option><option>Apartment project</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="message">Anything else? (optional)</label>
+        <textarea id="message" formControlName="message" rows="3" placeholder="Plot size, location, when you need it"></textarea>
+
+        <button class="btn" type="submit">Request a quote</button>
+        <a class="wa" [href]="whatsappLink" target="_blank" rel="noopener">Or send the details on WhatsApp</a>
+      </form>
+    } @else {
+      <div class="thanks">
+        <h3>Thanks, {{ form.controls.name.value }}.</h3>
+        <p>We'll call you on {{ form.controls.phone.value }} within one working day. To speed things up, send your floor plan on WhatsApp.</p>
+        <a class="btn" [href]="whatsappLink" target="_blank" rel="noopener">Send plan on WhatsApp</a>
+      </div>
+    }
+  </div>
+</section>
